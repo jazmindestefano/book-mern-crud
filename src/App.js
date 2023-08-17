@@ -1,10 +1,10 @@
 import React from "react";
-import { Header } from "./Components/Header";
+import { Header } from "./Common/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import AddBook from "./Components/AddBook";
-import Books from "./Components/Book/Books";
-import BookDetail from "./Components/Book/BookDetail";
+import Books from "./Components/Books";
+import BookDetail from "./Components/BookDetail";
 
 function App() {
   return (

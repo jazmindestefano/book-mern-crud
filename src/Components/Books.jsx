@@ -11,8 +11,14 @@ const fetchBooks = async () => {
     return [];
   }
 };
-
-const columns = ["Name", "Description", "Author", "Price", "Available"];
+const columns = [
+  "Name",
+  "Description",
+  "Author",
+  "Price",
+  "Available",
+  "Actions",
+];
 
 function Books() {
   const [books, setBooks] = useState([]);
