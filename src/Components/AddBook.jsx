@@ -29,8 +29,6 @@ function AddBook() {
     description: "",
   });
 
-  console.log({ data });
-
   const handleSubmit = () => {
     fetchAddBook(data).then((res) => navigate("/books"));
   };
