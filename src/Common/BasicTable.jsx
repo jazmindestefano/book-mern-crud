@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 
 export default function BasicTable({ columns, rows }) {
   const [data, setData] = useState([]);
@@ -56,16 +56,18 @@ export default function BasicTable({ columns, rows }) {
                   {row.available ? "Available" : "Not available"}
                 </TableCell>
                 <TableCell align="left">
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={() => fetchDeleteBook(row._id)}
-                  >
-                    Delete
-                  </Button>
-                  <Button variant="contained" color="info">
-                    Edit
-                  </Button>
+                  <Stack width={"100%"} spacing={2} direction={"row"}>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      onClick={() => fetchDeleteBook(row._id)}
+                    >
+                      Delete
+                    </Button>
+                    <Button variant="contained" color="info">
+                      Edit
+                    </Button>
+                  </Stack>
                 </TableCell>
               </TableRow>
             ))}
