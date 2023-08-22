@@ -65,7 +65,9 @@ export default function BasicTable({ columns, rows }) {
                       Delete
                     </Button>
                     <Button variant="contained" color="info">
-                      Edit
+                      <Link to={`http://localhost:3000/add/${row._id}`}>
+                        Edit
+                      </Link>
                     </Button>
                   </Stack>
                 </TableCell>
