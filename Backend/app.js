@@ -5,15 +5,16 @@ const cors = require("cors");
 
 const app = express();
 
+const MONGO_DB =
+  "mongodb+srv://admin:IG0axpmnSGu3Npg3@cluster0.a9hnh6c.mongodb.net/BookStore?retryWrites=true&w=majority";
+
 // Middlewares
 app.use(express.json());
 app.use(cors());
 app.use("/books", router); // localhost:5000/books
 
 mongoose
-  .connect(
-    "mongodb+srv://admin:IG0axpmnSGu3Npg3@cluster0.a9hnh6c.mongodb.net/BookStore?retryWrites=true&w=majority"
-  )
+  .connect(MONGO_DB)
   .then(() => console.log("connected to db"))
   .then(() => {
     app.listen(5000);
