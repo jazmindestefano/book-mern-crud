@@ -10,7 +10,14 @@ const MONGO_DB =
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5000",
+      "https://book-mern-crud-backend.onrender.com",
+    ],
+  })
+);
 app.use("/books", router); // localhost:5000/books
 
 mongoose
