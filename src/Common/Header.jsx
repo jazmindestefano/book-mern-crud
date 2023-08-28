@@ -26,6 +26,7 @@ export function Header() {
         value={value}
         onChange={handleChange}
       >
+        <Tab LinkComponent={NavLink} to="/" label="Home" />s
         <Tab LinkComponent={NavLink} to="/books" label="Books" />
         <Tab LinkComponent={NavLink} to="/add" label="Add Book" />
       </Tabs>
