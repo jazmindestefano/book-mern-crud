@@ -13,7 +13,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const fetchAddBook = async (data) => {
   try {
-    await axios.post("http://localhost:5000/books/", data);
+    await axios.post(
+      "https://book-mern-crud-backend.onrender.com/books/",
+      data
+    );
   } catch (e) {
     console.error(e);
   }
@@ -21,7 +24,10 @@ const fetchAddBook = async (data) => {
 
 const fetchEditBook = async (data) => {
   try {
-    await axios.put(`http://localhost:5000/books/${data._id}`, data);
+    await axios.put(
+      `https://book-mern-crud-backend.onrender.com/books/${data._id}`,
+      data
+    );
   } catch (e) {
     console.error(e);
   }
@@ -29,7 +35,9 @@ const fetchEditBook = async (data) => {
 
 const fetchBook = async (id) => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/books/${id}`);
+    const { data } = await axios.get(
+      `https://book-mern-crud-backend.onrender.com/books/${id}`
+    );
     return data;
   } catch (error) {
     return {};

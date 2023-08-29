@@ -17,7 +17,9 @@ export default function BasicTable({ columns, rows }) {
 
   const fetchDeleteBook = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/books/${id}`);
+      await axios.delete(
+        `https://book-mern-crud-backend.onrender.com/books/${id}`
+      );
       setData(data.filter((row) => row._id !== id));
     } catch (error) {
       return {};
@@ -45,7 +47,9 @@ export default function BasicTable({ columns, rows }) {
             data?.map((row, i) => (
               <TableRow key={i}>
                 <TableCell align="left">
-                  <Link to={`http://localhost:3000/books/${row._id}`}>
+                  <Link
+                    to={`https://book-mern-crud-frontend.onrender.com/books/${row._id}`}
+                  >
                     {row.name}
                   </Link>
                 </TableCell>
@@ -65,7 +69,9 @@ export default function BasicTable({ columns, rows }) {
                       Delete
                     </Button>
                     <Button variant="contained" color="info">
-                      <Link to={`http://localhost:3000/add/${row._id}`}>
+                      <Link
+                        to={`https://book-mern-crud-frontend.onrender.com/add/${row._id}`}
+                      >
                         Edit
                       </Link>
                     </Button>
