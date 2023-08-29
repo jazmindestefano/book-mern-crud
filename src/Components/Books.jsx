@@ -5,7 +5,9 @@ import BasicTable from "../Common/BasicTable";
 
 const fetchBooks = async () => {
   try {
-    const { data } = await axios.get("http://localhost:5000/books/");
+    const { data } = await axios.get(
+      "https://book-mern-crud-backend.onrender.com/books/"
+    );
     return data;
   } catch (error) {
     return [];
