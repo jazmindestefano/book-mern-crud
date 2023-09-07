@@ -3,12 +3,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BasicTable from "../Common/BasicTable";
 
-const API_URL = process.env.PROD_BACKEND_API || process.env.LOCAL_BACKEND;
+const API_URL = process.env.PROD_BACKEND_API;
+console.log({ API_URL });
 
 const fetchBooks = async () => {
   try {
     const { data } = await axios.get(
-      "https://book-mern-crud-backend.onrender.com/books/"
+      `https://book-mern-crud-backend.onrender.com/books/`
     );
     return data;
   } catch (error) {
