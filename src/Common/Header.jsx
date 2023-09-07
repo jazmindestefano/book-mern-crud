@@ -1,39 +1,57 @@
-import React, { useState } from "react";
-import { Stack, Tab, Tabs } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { Button, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export function Header() {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <Stack
       direction={"row"}
-      justifyContent={"space-between"}
+      justifyContent={"end"}
       alignItems={"center"}
-      spacing={50}
-      bgcolor={"#419d66"}
-      p={2}
+      spacing={5}
+      bgcolor={"black"}
+      p={3}
       position={"sticky"}
     >
-      <img
-        src="/images/svg-akatsuki.png"
-        alt="Akatsuki"
-        width="80px"
-        height="50px"
-      />
-      <Tabs
-        indicatorColor="inherit"
-        textColor="inherit"
-        value={value}
-        onChange={handleChange}
-      >
-        <Tab LinkComponent={NavLink} to="/" label="Home" />
-        <Tab LinkComponent={NavLink} to="/books" label="Books" />
-        <Tab LinkComponent={NavLink} to="/add" label="Add Book" />
-      </Tabs>
+      <Link to="/">
+        <Button
+          variant="contained"
+          sx={{
+            color: "black",
+            fontWeight: "bold",
+            background: "white",
+            ":hover": { background: "black", color: "white" },
+          }}
+        >
+          Home
+        </Button>
+      </Link>
+      <Link to="/books">
+        <Button
+          variant="contained"
+          sx={{
+            color: "black",
+            fontWeight: "bold",
+            background: "white",
+            ":hover": { background: "black", color: "white" },
+          }}
+        >
+          Books
+        </Button>
+      </Link>
+      <Link to="/add">
+        <Button
+          variant="contained"
+          sx={{
+            color: "black",
+            fontWeight: "bold",
+            background: "white",
+            ":hover": { background: "black", color: "white" },
+          }}
+        >
+          Add book
+        </Button>
+      </Link>
     </Stack>
   );
 }
