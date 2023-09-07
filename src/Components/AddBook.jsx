@@ -1,15 +1,16 @@
 import axios from "axios";
 import {
-  Box,
   Button,
-  Checkbox,
   FormControl,
   FormLabel,
+  Select,
   Stack,
   TextField,
+  Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import InternalLayout from "../Common/InternalLayout";
 
 const fetchAddBook = async (data) => {
   try {
@@ -75,40 +76,82 @@ function AddBook() {
   };
 
   return (
-    <Box paddingX={10} paddingY={5}>
+    <InternalLayout>
       <FormControl fullWidth>
         <Stack mb={3}>
-          <FormLabel>Enter Book Name</FormLabel>
+          <FormLabel>
+            <Typography color={"white"}>Enter Book Name</Typography>
+          </FormLabel>
           <TextField
+            variant="filled"
+            sx={{
+              border: "1px solid white",
+              borderRadius: "5px",
+              background: "white",
+            }}
             value={data?.name}
             onChange={(e) => setData({ ...data, name: e.target.value })}
           />
         </Stack>
         <Stack mb={3}>
-          <FormLabel>Enter Author Name</FormLabel>
+          <FormLabel>
+            <Typography color={"white"}>Enter Author Name</Typography>
+          </FormLabel>
           <TextField
+            variant="filled"
+            sx={{
+              border: "1px solid white",
+              borderRadius: "5px",
+              background: "white",
+            }}
             value={data?.author}
             onChange={(e) => setData({ ...data, author: e.target.value })}
           />
         </Stack>
         <Stack mb={3}>
-          <FormLabel>Enter Book Price</FormLabel>
+          <FormLabel>
+            <Typography color={"white"}>Enter Book Price</Typography>
+          </FormLabel>
           <TextField
+            variant="filled"
+            sx={{
+              border: "1px solid white",
+              borderRadius: "5px",
+              background: "white",
+            }}
             type="number"
             value={data?.price}
             onChange={(e) => setData({ ...data, price: e.target.value })}
           />
         </Stack>
         <Stack mb={3}>
-          <FormLabel>Enter Book Availability</FormLabel>
-          <Checkbox
-            checked={data?.available}
-            onChange={(e) => setData({ ...data, available: e.target.checked })}
-          />
+          <FormLabel>
+            <Typography color={"white"}>Enter Book Availability</Typography>
+          </FormLabel>
+          <Select
+            sx={{
+              border: "1px solid white",
+              borderRadius: "5px",
+              background: "white",
+            }}
+            value={data?.available}
+            onChange={(e) => setData({ ...data, available: e.target.value })}
+          >
+            <option value={true}>true</option>
+            <option value={false}>false</option>
+          </Select>
         </Stack>
         <Stack mb={5}>
-          <FormLabel>Enter Book Description</FormLabel>
+          <FormLabel>
+            <Typography color={"white"}>Enter Book Description</Typography>
+          </FormLabel>
+
           <TextField
+            sx={{
+              border: "1px solid white",
+              borderRadius: "5px",
+              background: "white",
+            }}
             value={data?.description}
             onChange={(e) => setData({ ...data, description: e.target.value })}
           />
@@ -117,7 +160,7 @@ function AddBook() {
       <Button onClick={handleSubmit} color="primary" variant="contained">
         Submit
       </Button>
-    </Box>
+    </InternalLayout>
   );
 }
 
