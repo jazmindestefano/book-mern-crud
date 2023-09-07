@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Stack, Tab, Tabs } from "@mui/material";
-import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import { NavLink } from "react-router-dom";
 
 export function Header() {
