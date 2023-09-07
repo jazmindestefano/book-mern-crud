@@ -15,18 +15,23 @@ export function Header() {
       justifyContent={"space-between"}
       alignItems={"center"}
       spacing={50}
-      bgcolor={"darksalmon"}
+      bgcolor={"#419d66"}
       p={2}
       position={"sticky"}
     >
-      <CollectionsBookmarkIcon />
+      <img
+        src="/images/svg-akatsuki.png"
+        alt="Akatsuki"
+        width="80px"
+        height="50px"
+      />
       <Tabs
-        indicatorColor="secondary"
+        indicatorColor="inherit"
         textColor="inherit"
         value={value}
         onChange={handleChange}
       >
-        <Tab LinkComponent={NavLink} to="/" label="Home" />s
+        <Tab LinkComponent={NavLink} to="/" label="Home" />
         <Tab LinkComponent={NavLink} to="/books" label="Books" />
         <Tab LinkComponent={NavLink} to="/add" label="Add Book" />
       </Tabs>
