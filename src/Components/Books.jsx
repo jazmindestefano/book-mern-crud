@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BasicTable from "../Common/BasicTable";
+import InternalLayout from "../Common/InternalLayout";
 
 const API_URL = process.env.PROD_BACKEND_API;
 console.log({ API_URL });
@@ -39,12 +40,12 @@ function Books() {
 
   if (loading) return <p>loading..</p>;
   return (
-    <Box paddingX={10} paddingY={5}>
+    <InternalLayout>
       <Typography variant="h4" fontSize={25} fontWeight={600} gutterBottom>
         Books
       </Typography>
       <BasicTable rows={books?.books} columns={columns} />
-    </Box>
+    </InternalLayout>
   );
 }
 
