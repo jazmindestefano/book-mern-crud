@@ -1,14 +1,14 @@
 import { Button, Stack, TableCell, TableRow, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import BasicTable from "../Common/BasicTable";
-import InternalLayout from "../Common/InternalLayout";
+import BasicTable from "../../Common/BasicTable";
+import InternalLayout from "../../Common/InternalLayout";
 import { Link } from "react-router-dom";
 
-const fetchBooks = async () => {
+const fetchAnimes = async () => {
   try {
     const { data } = await axios.get(
-      `https://book-mern-crud-backend.onrender.com/books/`
+      `https://book-mern-crud-backend.onrender.com/anime/`
     );
     return data;
   } catch (error) {
@@ -16,11 +16,11 @@ const fetchBooks = async () => {
   }
 };
 const columns = [
-  "Name",
-  "Description",
-  "Author",
-  "Price",
-  "Available",
+  "name",
+  "Seasons",
+  "Chapters Seen",
+  "Review",
+  "Favorite Character",
   "Actions",
 ];
 
@@ -32,17 +32,15 @@ const TableData = ({ data }) => {
           <TableRow>
             <TableCell align="left">
               <Link
-                to={`https://book-mern-crud-frontend.onrender.com/books/${data._id}`}
+                to={`https://book-mern-crud-frontend.onrender.com//books/${data?._id}`}
               >
-                {data.name}
+                {data?.name}
               </Link>
             </TableCell>
-            <TableCell align="left">{data.description}</TableCell>
-            <TableCell align="left">{data.author}</TableCell>
-            <TableCell align="left">{data.price}</TableCell>
-            <TableCell align="left">
-              {data.available ? "Available" : "Not available"}
-            </TableCell>
+            <TableCell align="left">{data?.seasons}</TableCell>
+            <TableCell align="left">{data?.chapters_seen}</TableCell>
+            <TableCell align="left">{data?.review}</TableCell>
+            <TableCell align="left">{data?.favorite_character}</TableCell>
             <TableCell align="left">
               <Stack width={"100%"} spacing={2} direction={"row"}>
                 <Button variant="contained" color="error" onClick={() => {}}>
@@ -50,7 +48,7 @@ const TableData = ({ data }) => {
                 </Button>
                 <Button variant="contained" color="info">
                   <Link
-                    to={`https://book-mern-crud-frontend.onrender.com/add/${data._id}`}
+                    to={`https://book-mern-crud-frontend.onrender.com/add/${data?._id}`}
                   >
                     Edit
                   </Link>
@@ -63,24 +61,24 @@ const TableData = ({ data }) => {
   );
 };
 
-function Books() {
-  const [books, setBooks] = useState([]);
+function Animes() {
+  const [animes, setAnimes] = useState([]);
 
   useEffect(() => {
-    fetchBooks()
-      .then((res) => setBooks(res))
-      .catch((e) => console.log("BOOKS ERROR: ", e));
+    fetchAnimes()
+      .then((res) => setAnimes(res))
+      .catch((e) => console.log("ANIMES ERROR: ", e));
   }, []);
 
-  if (!books) return <p>loading..</p>;
+  if (!animes) return <p>loading..</p>;
   return (
     <InternalLayout>
       <Typography variant="h4" fontSize={25} fontWeight={600} gutterBottom>
-        Books
+        Animes
       </Typography>
-      <BasicTable rows={<TableData data={books?.books} />} columns={columns} />
+      <BasicTable rows={<TableData data={animes?.anime} />} columns={columns} />
     </InternalLayout>
   );
 }
 
-export default Books;
+export default Animes;

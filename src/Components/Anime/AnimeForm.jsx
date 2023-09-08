@@ -25,21 +25,11 @@ const addAnime = async (data) => {
 const AnimeForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    seasons: "",
-    chaptersSeen: "",
+    seasons: 0,
+    chapters_seen: 0,
     review: "",
-    favoriteCharacter: "",
+    favorite_character: "",
   });
-
-  console.log({ formData });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
 
   const handleSubmit = () => {
     addAnime(formData)
@@ -58,7 +48,9 @@ const AnimeForm = () => {
                 label="Name"
                 name="name"
                 value={formData.name}
-                onChange={handleChange}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
               />
               <TextField
                 fullWidth
@@ -66,29 +58,40 @@ const AnimeForm = () => {
                 name="seasons"
                 type="number"
                 value={formData.seasons}
-                onChange={handleChange}
+                onChange={(e) =>
+                  setFormData({ ...formData, seasons: e.target.value })
+                }
               />
               <TextField
                 fullWidth
                 label="Chapters Seen"
                 name="chaptersSeen"
                 type="number"
-                value={formData.chaptersSeen}
-                onChange={handleChange}
+                value={formData.chapters_seen}
+                onChange={(e) =>
+                  setFormData({ ...formData, chapters_seen: e.target.value })
+                }
               />
               <TextField
                 fullWidth
                 label="Review"
                 name="review"
                 value={formData.review}
-                onChange={handleChange}
+                onChange={(e) =>
+                  setFormData({ ...formData, review: e.target.value })
+                }
               />
               <TextField
                 fullWidth
                 label="Favorite Character"
                 name="favoriteCharacter"
-                value={formData.favoriteCharacter}
-                onChange={handleChange}
+                value={formData.favorite_character}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    favorite_character: e.target.value,
+                  })
+                }
               />
               <Button
                 onClick={handleSubmit}
