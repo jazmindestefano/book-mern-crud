@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("./routes/book-routes");
+const booksRouter = require("./routes/book-routes");
+const animeRouter = require("./routes/anime-routes");
 const cors = require("cors");
 
 const app = express();
@@ -9,7 +10,8 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cors());
-app.use("/books", router); // localhost:5000/books
+app.use("/books", booksRouter); // localhost:5000/books
+app.use("/anime", animeRouter);
 
 mongoose
   .connect(process.env.MONGO_URI)
