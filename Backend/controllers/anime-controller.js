@@ -1,25 +1,25 @@
-const Anime = require("./Anime");
+const Anime = require("../model/Anime");
 
 const addAnime = async (req, res, next) => {
   const { name, seasons, chapters_seen, review, favorite_character } = req.body;
-  let book;
+  let anime;
   try {
-    book = new Anime({
+    anime = new Anime({
       name,
       seasons,
       chapters_seen,
       review,
       favorite_character,
     });
-    await book.save();
+    await anime.save();
   } catch (e) {
     console.log(e);
   }
 
-  if (!book) {
-    return res.status(500).json({ message: "Unable to add book" });
+  if (!anime) {
+    return res.status(500).json({ message: "Unable to add anime" });
   }
-  return res.status(201).json({ book });
+  return res.status(201).json({ anime });
 };
 
 exports.addAnime = addAnime;
