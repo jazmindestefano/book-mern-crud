@@ -115,7 +115,7 @@ const AnimeForm = () => {
               height={500}
             />
           </Box>
-          <Box position={"absolute"} top={170} right={"10%"}>
+          <Box position={"absolute"} top={140} right={"10%"}>
             <img
               src="/images/itachi-4.png"
               alt="itachi"
