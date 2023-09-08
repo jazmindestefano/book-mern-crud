@@ -12,8 +12,22 @@ function Home() {
         <Typography variant="h5" fontWeight={500} color={"white"}>
           Here you can track all your favorite animes
         </Typography>
-        <Stack width={"100%"} alignItems={"end"} top={15} position={"absolute"}>
+        <Stack top={15} right={"30%"} position={"absolute"}>
           <img src="/images/naruto-3-removebg-preview.png" alt="Akatsuki" />
+        </Stack>
+        <Stack left={400} top={80} position={"absolute"}>
+          <img src="/images/uzumaki-naruto.png" alt="naruto" />
+        </Stack>
+        <Stack top={100} right={0} position={"absolute"}>
+          <img src="/images/naruto-equipo.png" alt="naruto" />
+        </Stack>
+        <Stack top={370} position={"absolute"}>
+          <img
+            src="/images/naruto-h.png"
+            alt="naruto"
+            height={"300px"}
+            width={"300px"}
+          />
         </Stack>
       </Stack>
     </InternalLayout>
