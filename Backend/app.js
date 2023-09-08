@@ -10,7 +10,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cors());
-app.use("/books", booksRouter); // localhost:5000/books
+app.use("/books", booksRouter);
 app.use("/anime", animeRouter);
 
 mongoose

@@ -40,11 +40,10 @@ const AnimeForm = () => {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí puedes enviar los datos del formulario a tu servidor o realizar cualquier otra acción
-    console.log(formData);
-    addAnime(formData).then(() => console.log("Anime added successfully"));
+  const handleSubmit = () => {
+    addAnime(formData)
+      .then(() => console.log("Anime added successfully"))
+      .catch((e) => console.error(e));
   };
 
   return (
@@ -52,7 +51,7 @@ const AnimeForm = () => {
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <Paper elevation={3} style={{ padding: "20px" }}>
-            <FormControl onSubmit={handleSubmit} fullWidth sx={{ gap: "30px" }}>
+            <FormControl fullWidth sx={{ gap: "30px" }}>
               <TextField
                 fullWidth
                 label="Name"
@@ -91,6 +90,7 @@ const AnimeForm = () => {
                 onChange={handleChange}
               />
               <Button
+                onClick={handleSubmit}
                 type="submit"
                 variant="contained"
                 color="primary"

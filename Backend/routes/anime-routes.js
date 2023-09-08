@@ -3,6 +3,6 @@ const router = express.Router();
 
 const animeController = require("../controllers/anime-controller");
 
-router.post("/add", animeController.addAnime);
+router.post("/", animeController.addAnime);
 
 module.exports = router;
