@@ -6,8 +6,20 @@ import {
   Paper,
   TextField,
 } from "@mui/material";
+import axios from "axios";
 import { useState } from "react";
 import InternalLayout from "../../Common/InternalLayout";
+
+const addAnime = async (data) => {
+  try {
+    await axios.post(
+      "https://book-mern-crud-backend.onrender.com/anime/",
+      data
+    );
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 const AnimeForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +29,8 @@ const AnimeForm = () => {
     review: "",
     favoriteCharacter: "",
   });
+
+  console.log({ formData });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,7 +44,9 @@ const AnimeForm = () => {
     event.preventDefault();
     // Aquí puedes enviar los datos del formulario a tu servidor o realizar cualquier otra acción
     console.log(formData);
+    addAnime(formData).then(() => console.log("Anime added successfully"));
   };
+
   return (
     <InternalLayout>
       <Grid container spacing={2}>
@@ -95,7 +111,7 @@ const AnimeForm = () => {
               height={500}
             />
           </Box>
-          <Box position={"absolute"} top={170} right={100}>
+          <Box position={"absolute"} top={170} right={"10%"}>
             <img
               src="/images/itachi-4.png"
               alt="itachi"

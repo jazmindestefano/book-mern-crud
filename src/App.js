@@ -13,11 +13,11 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} exact />
-          <Route path="/add" element={<AddBook />} exact />
-          <Route path="/add/:id" element={<AddBook />} exact />
+          <Route path="/books/add" element={<AddBook />} exact />
+          <Route path="/books/edit/:id" element={<AddBook />} exact />
           <Route path="/books" element={<Books />} exact />
           <Route path="/books/:id" element={<BookDetail />} exact />
-          <Route path="/add-anime" element={<AnimeForm />} exact />
+          <Route path="/anime/add" element={<AnimeForm />} exact />
         </Routes>
       </main>
     </Layout>

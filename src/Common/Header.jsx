@@ -11,6 +11,7 @@ export function Header() {
       spacing={5}
       bgcolor={"black"}
       p={3}
+      pr={10}
       position={"sticky"}
     >
       <Link to="/">
@@ -36,10 +37,23 @@ export function Header() {
             ":hover": { background: "black", color: "white" },
           }}
         >
+          Books
+        </Button>
+      </Link>
+      <Link to="/anime">
+        <Button
+          variant="contained"
+          sx={{
+            color: "black",
+            fontWeight: "bold",
+            background: "white",
+            ":hover": { background: "black", color: "white" },
+          }}
+        >
           Animes
         </Button>
       </Link>
-      <Link to="/add">
+      <Link to="/anime/add">
         <Button
           variant="contained"
           sx={{
@@ -50,6 +64,19 @@ export function Header() {
           }}
         >
           Add anime
+        </Button>
+      </Link>
+      <Link to="/books/add">
+        <Button
+          variant="contained"
+          sx={{
+            color: "black",
+            fontWeight: "bold",
+            background: "white",
+            ":hover": { background: "black", color: "white" },
+          }}
+        >
+          Add book
         </Button>
       </Link>
     </Stack>

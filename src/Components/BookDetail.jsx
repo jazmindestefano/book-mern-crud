@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 
 const fetchBook = async (id) => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/books/${id}`);
+    const { data } = await axios.get(
+      `https://book-mern-crud-backend.onrender.com/books/${id}`
+    );
     return data;
   } catch (error) {
     return {};

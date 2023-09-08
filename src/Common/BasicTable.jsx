@@ -48,7 +48,7 @@ export default function BasicTable({ columns, rows }) {
               <TableRow key={i}>
                 <TableCell align="left">
                   <Link
-                    to={`https://book-mern-crud-frontend.onrender.com/books/${row._id}`}
+                    to={`https://book-mern-crud-frontend.onrender.com//books/${row._id}`}
                   >
                     {row.name}
                   </Link>
@@ -70,7 +70,7 @@ export default function BasicTable({ columns, rows }) {
                     </Button>
                     <Button variant="contained" color="info">
                       <Link
-                        to={`https://book-mern-crud-frontend.onrender.com/add/${row._id}`}
+                        to={`https://book-mern-crud-frontend.onrender.com//add/${row._id}`}
                       >
                         Edit
                       </Link>
