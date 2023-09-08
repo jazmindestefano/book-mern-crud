@@ -36,7 +36,7 @@ export function Header() {
             ":hover": { background: "black", color: "white" },
           }}
         >
-          Books
+          Animes
         </Button>
       </Link>
       <Link to="/add">
@@ -49,7 +49,7 @@ export function Header() {
             ":hover": { background: "black", color: "white" },
           }}
         >
-          Add book
+          Add anime
         </Button>
       </Link>
     </Stack>
