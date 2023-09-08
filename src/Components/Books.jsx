@@ -1,11 +1,8 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BasicTable from "../Common/BasicTable";
 import InternalLayout from "../Common/InternalLayout";
-
-const API_URL = process.env.PROD_BACKEND_API;
-console.log({ API_URL });
 
 const fetchBooks = async () => {
   try {

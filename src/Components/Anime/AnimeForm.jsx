@@ -12,12 +12,13 @@ import InternalLayout from "../../Common/InternalLayout";
 
 const addAnime = async (data) => {
   try {
-    await axios.post(
+    const res = await axios.post(
       "https://book-mern-crud-backend.onrender.com/anime/",
       data
     );
+    console.log({ res });
   } catch (e) {
-    console.error(e);
+    console.error("AXIOS E", e);
   }
 };
 

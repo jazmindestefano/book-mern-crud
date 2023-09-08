@@ -1,5 +1,19 @@
 const Anime = require("../model/Anime");
 
+const getAllAnime = async (req, res, next) => {
+  let anime;
+  try {
+    anime = await Anime.find();
+  } catch (e) {
+    console.log(e);
+  }
+
+  if (!anime) {
+    return res.status(404).json({ message: "No books found" });
+  }
+  return res.status(200).json({ anime });
+};
+
 const addAnime = async (req, res, next) => {
   const { name, seasons, chapters_seen, review, favorite_character } = req.body;
   let anime;
@@ -23,3 +37,4 @@ const addAnime = async (req, res, next) => {
 };
 
 exports.addAnime = addAnime;
+exports.getAllAnime = getAllAnime;
