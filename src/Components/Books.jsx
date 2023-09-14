@@ -15,6 +15,17 @@ const fetchBooks = async () => {
     return [];
   }
 };
+
+const deleteBooks = async (id) => {
+  try {
+    await axios.delete(
+      `https://book-mern-crud-backend.onrender.com/books/${id}`
+    );
+  } catch (e) {
+    console.error("DELETE BOOK ERROR", e);
+  }
+};
+
 const columns = [
   "Name",
   "Description",
@@ -45,7 +56,11 @@ const TableData = ({ data }) => {
             </TableCell>
             <TableCell align="left">
               <Stack width={"100%"} spacing={2} direction={"row"}>
-                <Button variant="contained" color="error" onClick={() => {}}>
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={() => deleteBooks(data._id)}
+                >
                   Delete
                 </Button>
                 <Button variant="contained" color="info">
