@@ -14,6 +14,21 @@ const getAllAnime = async (req, res, next) => {
   return res.status(200).json({ anime });
 };
 
+const getById = async (req, res, next) => {
+  const id = req.params.id;
+  let anime;
+  try {
+    anime = await Anime.findById(id);
+  } catch (e) {
+    console.log(e);
+  }
+
+  if (!anime) {
+    return res.status(404).json({ message: "No anime found" });
+  }
+  return res.status(200).json({ anime });
+};
+
 const addAnime = async (req, res, next) => {
   const { name, seasons, chapters_seen, review, favorite_character } = req.body;
   let anime;
@@ -55,3 +70,4 @@ const deleteAnime = async (req, res, next) => {
 exports.addAnime = addAnime;
 exports.getAllAnime = getAllAnime;
 exports.deleteAnime = deleteAnime;
+exports.getById = getById;

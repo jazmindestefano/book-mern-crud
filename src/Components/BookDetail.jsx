@@ -22,7 +22,7 @@ function BookDetail() {
     fetchBook(id)
       .then((res) => setBook(res.book))
       .catch((e) => console.log("BOOK ERROR: ", e));
-  }, []);
+  }, [id]);
 
   return (
     <Box paddingX={10} paddingY={5}>

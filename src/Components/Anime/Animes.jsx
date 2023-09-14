@@ -44,7 +44,7 @@ const TableData = ({ data }) => {
           <TableRow>
             <TableCell align="left">
               <Link
-                to={`https://book-mern-crud-frontend.onrender.com//books/${data?._id}`}
+                to={`https://book-mern-crud-frontend.onrender.com/anime/${data?._id}`}
               >
                 {data?.name}
               </Link>
