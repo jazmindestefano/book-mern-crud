@@ -15,6 +15,17 @@ const fetchAnimes = async () => {
     return [];
   }
 };
+
+const deleteAnime = async (id) => {
+  try {
+    await axios.delete(
+      `https://book-mern-crud-backend.onrender.com/anime/${id}`
+    );
+  } catch (e) {
+    console.error("DELETE ANIME ERROR", e);
+  }
+};
+
 const columns = [
   "name",
   "Seasons",
@@ -25,6 +36,7 @@ const columns = [
 ];
 
 const TableData = ({ data }) => {
+  console.log({ data });
   return (
     <>
       {data &&
@@ -43,7 +55,13 @@ const TableData = ({ data }) => {
             <TableCell align="left">{data?.favorite_character}</TableCell>
             <TableCell align="left">
               <Stack width={"100%"} spacing={2} direction={"row"}>
-                <Button variant="contained" color="error" onClick={() => {}}>
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={() => {
+                    deleteAnime(data._id);
+                  }}
+                >
                   Delete
                 </Button>
                 <Button variant="contained" color="info">

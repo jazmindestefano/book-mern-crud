@@ -36,5 +36,22 @@ const addAnime = async (req, res, next) => {
   return res.status(201).json({ anime });
 };
 
+const deleteAnime = async (req, res, next) => {
+  const id = req.params.id;
+  let anime;
+  try {
+    anime = await Anime.findByIdAndRemove(id);
+  } catch (e) {
+    console.log(e);
+  }
+
+  if (!anime) {
+    return res.status(404).json({ message: "Unable to delete anime" });
+  }
+
+  return res.status(200).json({ message: "Anime deleted" });
+};
+
 exports.addAnime = addAnime;
 exports.getAllAnime = getAllAnime;
+exports.deleteAnime = deleteAnime;
