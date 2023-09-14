@@ -81,6 +81,8 @@ const TableData = ({ data }) => {
 function Books() {
   const [books, setBooks] = useState([]);
 
+  // TODO: Add delete functionality to table books
+
   useEffect(() => {
     fetchBooks()
       .then((res) => setBooks(res))
